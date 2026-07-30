@@ -1,0 +1,327 @@
+/* ==========================================================================
+   RESET & VARIABLES
+   ========================================================================== */
+:root {
+    --bg-dark: #0a0c10;
+    --bg-card: #12161f;
+    --border-color: #1f293d;
+    
+    --primary-cyan: #00f2fe;
+    --secondary-blue: #4facfe;
+    --accent-glow: rgba(0, 242, 254, 0.15);
+    
+    --text-main: #f1f5f9;
+    --text-muted: #94a3b8;
+    
+    --font-sans: 'Inter', sans-serif;
+    --font-mono: 'Fira Code', monospace;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Background Grid Pattern */
+.bg-grid {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* ==========================================================================
+   NAVBAR
+   ========================================================================== */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 10%;
+    background: rgba(10, 12, 16, 0.8);
+    backdrop-filter: blur(10px);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.logo {
+    font-family: var(--font-mono);
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+.highlight {
+    color: var(--primary-cyan);
+}
+
+.navbar nav a {
+    color: var(--text-muted);
+    text-decoration: none;
+    margin-left: 2rem;
+    font-size: 0.95rem;
+    transition: color 0.3s;
+}
+
+.navbar nav a:hover {
+    color: var(--primary-cyan);
+}
+
+.navbar nav .btn-nav {
+    border: 1px solid var(--primary-cyan);
+    padding: 0.4rem 1rem;
+    border-radius: 4px;
+    color: var(--primary-cyan);
+}
+
+.navbar nav .btn-nav:hover {
+    background: var(--accent-glow);
+}
+
+/* ==========================================================================
+   HERO SECTION
+   ========================================================================== */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 0 10%;
+    padding-top: 5rem;
+}
+
+.badge {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--primary-cyan);
+    background: var(--accent-glow);
+    padding: 0.3rem 0.8rem;
+    border-radius: 50px;
+    border: 1px solid rgba(0, 242, 254, 0.3);
+    letter-spacing: 1px;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    margin: 1.5rem 0 0.5rem;
+    font-weight: 700;
+}
+
+.gradient-text {
+    background: linear-gradient(135deg, var(--primary-cyan), var(--secondary-blue));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+    font-size: 1.5rem;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+}
+
+.description {
+    max-width: 600px;
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+}
+
+/* Buttons */
+.hero-btns {
+    display: flex;
+    gap: 1rem;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.8rem 1.8rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary-cyan), var(--secondary-blue));
+    color: var(--bg-dark);
+    box-shadow: 0 0 20px var(--accent-glow);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 30px rgba(0, 242, 254, 0.4);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--text-main);
+    border: 1px solid var(--border-color);
+}
+
+.btn-secondary:hover {
+    border-color: var(--primary-cyan);
+    color: var(--primary-cyan);
+}
+
+/* ==========================================================================
+   SECTIONS & CARDS
+   ========================================================================== */
+.section {
+    padding: 6rem 10%;
+}
+
+.section-title {
+    font-size: 2rem;
+    margin-bottom: 3rem;
+}
+
+.code-tag {
+    font-family: var(--font-mono);
+    color: var(--primary-cyan);
+    margin-right: 0.5rem;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+/* Base Card Style */
+.card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 2rem;
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    border-color: var(--primary-cyan);
+    transform: translateY(-50px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px var(--accent-glow);
+}
+
+/* Skill Card */
+.skill-card .card-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.skill-card h3 {
+    margin-bottom: 0.5rem;
+}
+
+.skill-card p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+/* Project Card */
+.project-tag {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--primary-cyan);
+}
+
+.project-card h3 {
+    margin: 0.5rem 0;
+}
+
+.project-card p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+}
+
+.tech-tags {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.tech-tags span {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    color: var(--text-muted);
+}
+
+/* ==========================================================================
+   CONTACT & FOOTER
+   ========================================================================== */
+.contact-box {
+    text-align: center;
+    padding: 4rem 2rem;
+}
+
+.contact-box h2 {
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+}
+
+.contact-box p {
+    color: var(--text-muted);
+    max-width: 500px;
+    margin: 0 auto 2rem;
+}
+
+.btn-large {
+    padding: 1rem 2.5rem;
+    font-size: 1.1rem;
+}
+
+footer {
+    text-align: center;
+    padding: 2rem;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    border-top: 1px solid var(--border-color);
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN
+   ========================================================================== */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 1.5rem 5%;
+    }
+    
+    .navbar nav a {
+        margin-left: 1rem;
+        font-size: 0.85rem;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .subtitle {
+        font-size: 1.2rem;
+    }
+
+    .section {
+        padding: 4rem 5%;
+    }
+}
